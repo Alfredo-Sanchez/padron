@@ -11,7 +11,7 @@ controller.index = (req, res)=>{
 
 controller.socios = async (req, res)=>{
     try {
-       const response =  await pool.query('SELECT * FROM socios');
+       const response =  await pool.query('SELECT * FROM public.asamblea2024');
 
        res.send(response)
         
@@ -22,7 +22,7 @@ controller.socios = async (req, res)=>{
 controller.getSocio = async (req, res)=>{
   const id =   req.params.id;
   try {
-      const response = await pool.query('SELECT * FROM socios WHERE socio_ci = $1', [id])
+      const response = await pool.query('SELECT * FROM public.asamblea2024 WHERE socio_ci = $1', [id])
       if(response.rows.length !== 0){
           res. send(response.rows)
       }else {
