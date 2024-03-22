@@ -5,11 +5,11 @@ const path = require('path')
 //database conexion
 const pool = require('../database/databases')
 
-controller.index = (req, res)=>{
+controller.index = (req, res) => {
     res.sendFile(path.resolve(__dirname, '../../public/index.html'))
 }
 
-controller.socios = async (req, res)=>{
+controller.socios = async (req, res) => {
     try {
        const response =  await pool.query('SELECT * FROM public.asamblea2024');
 
